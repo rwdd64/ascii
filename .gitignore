@@ -1,0 +1,6 @@
+test/
+assets/
+
+*.o
+*.exe
+*.out
