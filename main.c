@@ -7,7 +7,7 @@
 #include "stb_image.h"
 
 #define GRAYSCALE_CHANNEL 1
-#define SHADER_COUNT 7
+#define SHADES_COUNT 7
 
 typedef enum {
     NONE      = 0,
@@ -42,14 +42,14 @@ int main(int argc, char** argv) {
     int width, height, channels;
     int desiredch = GRAYSCALE_CHANNEL;
 
-    char shades[SHADER_COUNT] =
+    char shades[SHADES_COUNT] =
         { '%', '%', '=', '~', '.', '.', ' ' };
 
     if (flags & REVERSE) {
-        for (int i = 0; i < my_floor((double)SHADER_COUNT/2); ++i) {
+        for (int i = 0; i < my_floor((double)SHADES_COUNT/2); ++i) {
             const char temp = shades[i];
-            shades[i] = shades[SHADER_COUNT-i-1];
-            shades[SHADER_COUNT-i-1] = temp;
+            shades[i] = shades[SHADES_COUNT-i-1];
+            shades[SHADES_COUNT-i-1] = temp;
         }
     }
 
@@ -69,7 +69,7 @@ int main(int argc, char** argv) {
         }
     }
 
-    int divisor = my_ceil((double)UINT8_MAX/SHADER_COUNT);
+    int divisor = my_ceil((double)UINT8_MAX/SHADES_COUNT);
 
     for (int i = 0; i < total_values; i += desiredch) {
         if (i!=0 && i%width==0) printf("\n");
