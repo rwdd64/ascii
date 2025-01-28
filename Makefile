@@ -10,3 +10,9 @@ all: $(OBJECTS)
 
 $(OBJECTS): %.o : %.c
 	$(CC) -o $@ -c $(CFLAGS) $(CPPFLAGS) $<
+
+install: all
+	mv $(TARGET) $(DESTDIR)/$(TARGET)
+
+uninstall:
+	rm -f $(DESTDIR)/$(TARGET)
