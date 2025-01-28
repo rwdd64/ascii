@@ -42,6 +42,7 @@ int main(int argc, char** argv) {
     int width, height, channels;
     int desiredch = GRAYSCALE_CHANNEL;
 
+    // DARKER --> LIGHTER
     char shades[SHADES_COUNT] =
         { '%', '%', '=', '~', '.', '.', ' ' };
 
